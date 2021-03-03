@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Compte{% endblock %}
+
+{% block body %}
+    <h1>Mon Compte</h1>
+    Bienvenue {{ app.user.username}} dans Votre compte.<br>
+    <hr>
+    - <a href="{{path('command')}}">liste de mes commandes.</a><br>
+    - <a href="{{path('command_add')}}">Ajouter une commande.</a>
+{% endblock %}

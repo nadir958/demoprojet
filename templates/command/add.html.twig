@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ajouter Commande{% endblock %}
+
+{% block body %}
+<h1>Gerer mes Commandes</h1><a href="{{ path('command') }}" class="btn btn-info btn-sm float-right">Retour</a><br>
+<hr>
+{{form(form)}}
+
+
+{% endblock %}

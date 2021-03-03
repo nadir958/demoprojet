@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Commands{% endblock %}
+
+{% block body %}
+<h1>Mes Commandes</h1>
+liste de mes commandes.
+<a href="{{ path('account') }}" class="btn btn-info btn-sm float-right">Retour</a>
+<hr>
+{% if app.user.commandes| length == 0 %}
+    <p>
+        Vous n'avez pas encore des commandes, pour ajouter <a href="{{path('command_add')}}">cliquer ici</a>.
+    </p>
+{% else %}
+<div class="row">
+    {% for command in app.user.commandes%}
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{command.title}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ command.date|date("m/d/Y") }}</h6>
+            <p class="card-text">{{command.description}}</p>
+            <a href="{{path('command_edit',{'id':command.id})}}" class="card-link">Modifier</a>
+            <a href="{{path('command_delete',{'id':command.id})}}" class="card-link">Supprimer</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>   
+{% endif %}
+
+
+
+{% endblock %}
